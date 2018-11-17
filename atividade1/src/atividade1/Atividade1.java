@@ -35,7 +35,14 @@ public class Atividade1 extends agenda {
             break;
             }
             case 3:{
-            
+                String nome;
+                System.out.println("informe o nome pra saber a posição:");
+                nome = scan.next();
+                if(agend.buscaPessoa(nome)<0){
+                System.out.println("posição não existe");
+                }else{
+                System.out.println("posição: "+agend.buscaPessoa(nome));
+                }
             break;
             }
             case 4:{
@@ -45,8 +52,17 @@ public class Atividade1 extends agenda {
             break;
             }
             case 5:{
-           
+                int i;
+                System.out.println("----imprime Pessoa----");
+                System.out.println("informe uma posição");
+                i = scan.nextInt();
+                agend.impirmePessoa(i);
+                System.out.println("----------------------");
             break;
+            }
+            default:{
+                System.out.print("opção invalidar"); 
+                break;
             }
         }        
     }while(opc !=9);

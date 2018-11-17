@@ -5,7 +5,8 @@ import java.util.Scanner;
 public class agenda {
     Scanner entrada = new Scanner(System.in);   
     ArrayList<String> agendas = new ArrayList();
-    
+    //ArrayList<Object> dados = new ArrayList();
+
     private String nome;
     private int idade;
     private float altura;
@@ -47,16 +48,29 @@ public class agenda {
     setIdade(entrada.nextInt());
     System.out.println("informe sua altura: ");
     setAltura(entrada.nextFloat());
-    agendas.add("Nome: "+getNome()+" idade: "+getIdade()+" altura: "+getAltura());    
+    agendas.add(getNome()); 
+    agendas.add(""+getIdade()); 
+    agendas.add(""+getAltura());
+   // dados.add(agendas);
+   // agendas.clear();
     }
     
-    public void impirmeAgenda(){    
+    public void impirmeAgenda(){ 
+        int i = 0;
         for (String item : agendas) {
-        System.out.println(item);
+        System.out.println("posição "+i+" "+item);
+        ++i;
         }
     }
     
-    public void removeNome(String nome){
-        agendas.remove(nome);
+    public void impirmePessoa(int index){            
+        System.out.println(agendas.get(index));       
+    }
+    
+    public void removeNome(String nome){        
+        agendas.remove(nome);                
+    }
+    public int buscaPessoa(String nome){
+       return agendas.indexOf(nome);
     }
 }
